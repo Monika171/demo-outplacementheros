@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use App\Company;
-use App\Job;
-use App\User;
-use App\Country;
-use App\State;
-use App\City;
-use App\Designation;
-use App\Industry;
+use App\Models\Company;
+use App\Models\Job;
+use App\Models\User;
+use App\Models\Country;
+use App\Models\State;
+use App\Models\City;
+use App\Models\Designation;
+use App\Models\Industry;
 use Auth;
 
 

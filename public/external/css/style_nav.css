@@ -1,0 +1,158 @@
+.nav
+{
+  background: #038cfc;
+  width: 100%;
+  height: 100px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 115px;
+  background-position: bottom center;
+  background-size: cover;
+}
+.logo img
+{
+  float: left;
+  margin-right: 50px;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+.nav > .nav-header 
+{
+  display: inline;
+}
+.nav > .nav-btn 
+{
+  display: none;
+}
+.nav > .nav-links 
+{
+  display: inline;
+  margin-top: 2%;
+  margin-left: 2%;
+  background-color: transparent;
+  float: right;
+  font-weight: 600;
+  font-size: 23px;
+}
+.nav > .nav-links > a 
+{
+  display: inline-block;
+  padding: 10px 10px 10px 10px;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0,0,0,0);
+  border-radius: 5px;
+}
+.nav > .nav-links > .active
+{
+  border-bottom: 2px solid #f51653;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.nav > .nav-links > a:hover 
+{
+  border-bottom: 2px solid #f51653;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.nav > #nav-check 
+{
+  display: none;
+}
+@media (max-width:900px) 
+{
+  .nav
+  {
+    min-height: 200px;
+  }
+  .nav > .nav-btn 
+  {
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label 
+  {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label 
+  {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .nav > .nav-btn > label > span 
+  {
+    right: 0;
+    display: block;
+    width: 30px;
+    height: 10px;
+    border-top: 4px solid white;
+  }
+  .nav > .nav-links 
+  {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    background-color: white;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 40px;
+    left: 0px;
+  }
+  .nav > .nav-links > a 
+  {
+    display: block;
+    width: 100%;
+    color: black;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links 
+  {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links 
+  {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+  .logo img
+  {
+    width: 300px;
+    height: 100px;
+    margin-left: 1%;
+  }
+  button
+  {
+    display: none;
+  }
+}
+.button
+{
+  border-radius: 30px 5px;
+  margin-left: 10%;
+  margin-top: 20%;
+  border: 2px solid white;
+  display: block;
+  font-weight: 900;
+  font-size:18px;
+  position: relative;
+  transition:0.3s ease-in-out all;
+  padding: 5px 5px 5px 5px;
+  transform-origin:50% 0;
+  background-color: #f51653;
+  color: white;
+  width: 150px;
+}
+.button:hover
+{
+  border-radius: 5px 30px;
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+}
