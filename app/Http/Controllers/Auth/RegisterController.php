@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Profile;
+use App\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -53,6 +55,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'dob'=>'required',
+            'gender'=>'required'
         ]);
     }
 
@@ -68,6 +72,18 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'user_type' => $data['user_type'],
+			'notifications_frequency' => $data['notifications_frequency'],
         ]);
+
+        Profile::create([
+            'user_id' => $user->id,
+            'gender' => request('gender'),
+            'dob'=>request('dob')
+
+        ]);
+
+        $user->roles()->attach($seekerRole->id);
+        return $user;
     }
 }

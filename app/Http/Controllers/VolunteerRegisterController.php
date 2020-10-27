@@ -39,7 +39,9 @@ class VolunteerRegisterController extends Controller
         ]);
 
         $user->roles()->attach($volunteerRole->id);
-        $user->sendEmailVerificationNotification();
+
+        // To Send Email Verification Notification Uncomment this
+        // $user->sendEmailVerificationNotification();
 
        
         return redirect()->back()->with('message','A verification link is sent to your email. Please follow the link to verify it');

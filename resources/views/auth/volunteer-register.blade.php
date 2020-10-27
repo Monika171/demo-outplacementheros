@@ -1,248 +1,138 @@
-@extends('layouts.main1')
-
-@section('title')
-Mentor Signup
-@endsection
-
-  @section('select2css')
-   
-  <style>
-  
-  .center {
-  
-  padding: 10px;
-}
-
-    .text
-    {
-      margin-top: -5%;
-      font-size: 30px;
-      margin-left: -35%;
-    }
-    form input[type=submit]
-    {
-      background: #038CFC;
-      border-radius: 30px 5px;
-      border: 2px solid white;      
-      color: white;
-      font-size: 15px;
-      width: 100px; 
-      font-weight: 700;
-      transition: all 0.3s ease 0s;
-      cursor: pointer;
-      float: left;
-      height: 40px;
-      margin-left: 25%;
-      margin-top: 15%;
-      position: relative;
-    }
-    form input[type="submit"]:hover 
-    {
-        border-radius:5px 30px;
-         color:white;
-    }
-    form
-    {
-      border: 2px solid #038cfc;
-    }
-    .txt
-    {
-      font-size: 15px;
-      border-bottom: 2px solid grey;
-      border-right: 2px solid grey;
-      opacity: 0.5;
-      width: 250px;
-      height: 35px;
-      border-radius: 10px;
-    }
-    @media (max-width:900px) 
-    {
-      .ftco-section
-      {
-        background-color: white;
-      }
-      .ftco-section .container
-      {
-        background-color: white;
-      }    
-      .ftco-section .container .row
-      {
-        margin-left: -100%;
-        background-color: white;
-      }
-      .text
-      {
-        font-size: 25px;
-      }
-      form p
-        {
-          margin-left: -110%;
-        }
-      form
-      {
-        border: none;
-      }
-    }
-	
-	.con1 { 
-  position: relative;
-}
-
-.cen1 {
-  margin: auto;
-  position: absolute;
-  left: 60%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-  
-  </style>
-
-@endsection
-
+@extends('layouts.main')
 @section('content')
-    {{--<div class="hero-wrap" style="height: 0px; background: linear-gradient(to bottom, #003399 0%, #666699 100%)" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-            <div class="row no-gutters slider-text align-items-end justify-content-start" style="height: 410px" data-scrollax-parent="true">
-                <div class="col-md-8 ftco-animate text-center text-md-left mb-5" data-scrollax=" properties: { translateY: '70%' }">
-                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-3"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Sign Up</span></p>
-                <h1  style="font-size: 45px;" class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Job Seeker </h1>
-            </div>
-        </div>
-    </div>
-</div>--}}
+   <div class="album text-muted">
+     <div class="container">
+       <div class="row">
+         <h1>Volunteer Registration</h1>   
 
-    <div class="ftco-section bg-light">
+    <div class="site-section bg-light">
       <div class="container">
-        <div class="row" style="margin-left: 27%;color: black;font-size: 14px;margin-bottom: -10%;">
-       
-            @if(Session::has('message'))
+        <div class="row">
+       @if(Session::has('message'))
                  <div class="alert alert-success">
                     {{Session::get('message')}}
                 </div>
             @endif
-			
-		<div class="col-md-12 mt-5">
-        <div class="text-center"><h1 class="text">Mentor Signup</h1></div>
-        </div>
 
-          <div class="col-md-9 col-lg-8 mb-5 center" style="color: black; font-size: 14px;">
+          <div class="col-md-12 col-lg-8 mb-5">
           
             <form method="POST" action="{{ route('vol.register') }}" class="p-5 bg-white">
-                @csrf
+                        @csrf
 
-                <input type="hidden" value="volunteer" name="user_type">
-                               <div class="form-group row">
-            
-                    <div class="col-md-12">Name</div>
+                        <input type="hidden" value="volunteer" name="user_type">
+                        <div class="form-group row">
+                    
+                            <div class="col-md-12">Name</div>
 
-                    <div class="col-md-12">
-                        <input id="name" type="text" class="txt form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <div class="col-md-12">
+                                <input id="name" type="text" placeholder="your name here" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
+                                
                         @if ($errors->has('name'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('name') }}</strong>
                         </span>
                     @endif
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
 
-                <div class="form-group row">
-            
-                    <div class="col-md-12">Email Address</div>
+                        <div class="form-group row">
+                    
+                            <div class="col-md-12">Email Address</div>
 
-                    <div class="col-md-12">
-                        <input id="email" type="text" class="txt form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                            <div class="col-md-12">
+                                <input id="email" type="text" placeholder="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
-                        @if ($errors->has('email'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
 
-                <div class="form-group row">
-            
-                    <div class="col-md-12">Date of Birth</div>
+                        <div class="form-group row">
+                    
+                            <div class="col-md-12">Date of Birth</div>
 
-                    <div class="col-md-12">
-                        <input type="text" id="date_dob" class="txt form-control datepicker @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required>
+                            <div class="col-md-12">
+                                <input type="text" id="datepicker" placeholder="date of birth" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob">
 
-                        @if ($errors->has('dob'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('dob') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-                
+                                @if ($errors->has('dob'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('dob') }}</strong>
+                                </span>
+                            @endif
+                            </div>
+                        </div>
+                        
 
-                <div class="form-group row">
-            
-                    <div class="col-md-12">Password</div>
+                        <div class="form-group row">
+                    
+                            <div class="col-md-12">Password</div>
 
-                    <div class="col-md-12">
-                        <input id="password" type="password" class="txt form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="{{ old('password') }}" required autofocus>
-                       
-                        @if ($errors->has('password'))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                        @endif
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-12">Confirm password</div>
+                            <div class="col-md-12">
+                                <input id="password" type="password" placeholder="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="{{ old('password') }}" required autofocus>
 
-                    <div class="col-md-12">
-                        <input id="password-confirm" type="password" class="txt form-control" name="password_confirmation" required>
-                    </div>
-                </div>
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">Confirm password</div>
 
-                <div class="form-group row">
-            
-                    <div class="col-md-12">Gender</div>
+                            <div class="col-md-12">
+                                <input id="password-confirm" placeholder="confirm password" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
 
-                    <div class="col-md-12">
-                        <input type="radio" name="gender" value="male" required="">
-						&nbsp;&nbsp; Male <br>
-                        <input type="radio" name="gender" value="female">
-						&nbsp;&nbsp; Female
+                        <div class="form-group row">
+                    
+                            <div class="col-md-12">Gender</div>
 
-                        @if ($errors->has('gender'))
+                            <div class="col-md-12">
+                                <input type="radio" name="gender" value="male" required="">Male
+                                <input type="radio" name="gender" value="female">Female
+
+                                @if ($errors->has('gender'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('gender') }}</strong>
                         </span>
                         @endif
-                    </div>
+                            </div>
+                        </div>
+
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Register as Job Seeker" class="btn btn-primary  py-2 px-5">
                 </div>
+              </div>
 
+  
+            </form>
+          </div>
 
-
-
-      <div class="row form-group con1 mt-2 mb-0">
-        <div class="col-md-12 cen1">
-          <input class="text-center" type="submit" value="Register" class="buttonr px-5 py-2" style="font-size: 17px;">
+          <div class="col-lg-4">
+            
+            
+            <div class="p-4 mb-3 bg-white">
+              <h3 class="h5 text-black mb-3">More Info</h3>
+              <p>Once you create an account a verification link will be sent to your email.</p>
+              <!--<p><a href="#" class="btn btn-primary  py-2 px-4">Learn More</a></p>-->
+            </div>
+          </div>
         </div>
       </div>
-	  
-	
-      <p class="text-dark text-center my-0" style="font-size: 14px;">
- 	*Verification link will be sent to your email.
-	</p>
-	
-	</form>
-	
     </div>
 
-     
-    </div>
-         
-           
-    </div>
-    </div> 
-    @endsection
+
+
+     </div>
+   </div>
+@endsection

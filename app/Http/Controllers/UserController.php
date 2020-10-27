@@ -24,7 +24,8 @@ class UserController extends Controller
 {
                   public function __construct(){
                   
-                    $this->middleware(['seeker','verified']);
+                    // $this->middleware(['seeker','verified']);
+                    $this->middleware(['seeker']);
                     
                   //$this->middleware(['seeker','verified'], ['only' => ['index','store','coverletter','resume','profile_pic']]);
                   //$this->middleware(['employer','verified'], ['only' => ['show_profile']]);

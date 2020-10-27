@@ -27,7 +27,8 @@ use Auth;
 class VolunteerController extends Controller
 {
   public function __construct(){
-    $this->middleware(['volunteer','verified']);
+    // $this->middleware(['volunteer','verified']);
+    $this->middleware(['volunteer']);
     }  
 
 

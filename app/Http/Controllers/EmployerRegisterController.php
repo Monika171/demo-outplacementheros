@@ -38,7 +38,9 @@ class EmployerRegisterController extends Controller
         $user->roles()->attach($employerRole->id);
         //$user->roles()->attach($employerRole);
         //$user->attachRole($employerRole);
-        $user->sendEmailVerificationNotification();
+
+        // To Send Email Verification Notification Uncomment this
+        // $user->sendEmailVerificationNotification();
 
        
         return redirect()->back()->with('message','A verification link is sent to your email. Please follow the link to verify it');
