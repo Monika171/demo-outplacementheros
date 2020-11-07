@@ -15,6 +15,6 @@ class Work extends Model
     protected $guarded = [];
 
     function user() {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('App\Models\User');
    }
 }

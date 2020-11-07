@@ -1,5 +1,5 @@
-<div class="hero-wrap js-fullheight" style="background: linear-gradient(to bottom, #003399 0%, #666699 100%)" data-stellar-background-ratio="0.5">
-<!--<div class="hero-wrap js-fullheight" style="background-image: url('external/images/bg_2.jpg');" data-stellar-background-ratio="0.5">-->
+{{-- <div class="hero-wrap js-fullheight" style="background: linear-gradient(to bottom, #003399 0%, #666699 100%)" data-stellar-background-ratio="0.5"> --}}
+<div class="hero-wrap js-fullheight" style="background-image: url('external/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
   <div class="container">
     
@@ -10,7 +10,7 @@
         <h1 class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We Hold Your Hands <br><span>at this <br><span> Difficult Time..</span></h1>
         
         
-            <div class="container-fluid h-100">
+            {{-- <div class="container-fluid h-100">
               <div class="row justify-content-center">
  
                 <div class="col-lg-12">
@@ -28,7 +28,7 @@
                   
               
              </div>
-         </div>
+         </div> --}}
      
 
         <!--<div class="card text-white bg-warning mb-3" style="max-width: 18rem;">

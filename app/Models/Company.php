@@ -20,7 +20,7 @@ class Company extends Model
     ];
     
         public function jobs(){
-            return $this->hasMany('App\Job');
+            return $this->hasMany('App\Models\Job');
         }
     
         public function getRouteKeyName(){
@@ -28,6 +28,6 @@ class Company extends Model
         }
     
         public function user(){
-            return $this->belongsTo('App\User');
+            return $this->belongsTo('App\Models\User');
         }
 }

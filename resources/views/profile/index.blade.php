@@ -232,6 +232,7 @@
                     <div class="form-group required">
                         <label for=""  class="control-label h6">Phone number</label>
                         <input type="text" class="form-control" name="phone_number" value="{{Auth::user()->profile->phone_number?Auth::user()->profile->phone_number:old("phone_number")}}">
+                        {{-- <input type="text" class="form-control" name="phone_number"> --}}
                         @if($errors->has('phone_number'))
                             <div class="error" style="color: red;">{{$errors->first('phone_number')}}</div>
                         @endif

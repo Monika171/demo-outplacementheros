@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\Profile;
 use App\Models\Company;
 use App\Models\Job;
-//use App\Models\Role;
+use App\Models\Role;
 use App\Models\VolunteerProfile;
 use App\Models\JvolunteerProfile;
 use App\Models\Skill;
@@ -55,13 +55,7 @@ class User extends Authenticatable
     public function company(){
         return $this->hasOne(Company::class);
     }
-    public function secompany(){
-        return $this->hasOne(semployers::class);
-    }
-    public function consultant(){
-        return $this->hasOne(consultant::class);
-    }
-
+  
     public function roles(){
         return $this->belongsToMany(Role::class);
     }
@@ -71,20 +65,16 @@ class User extends Authenticatable
         return $this->hasOne(VolunteerProfile::class);
     }
 
-    public function jvprofile(){
-        return $this->hasOne(JvolunteerProfile::class);  //JvolunteerProfile
-    }
-
     function skills() {
-        return $this->belongsToMany('App\Skill')->withTimeStamps();
+        return $this->belongsToMany('App\Models\Skill')->withTimeStamps();
     }
 
     function educations() {
-        return $this->hasMany('App\Education');
+        return $this->hasMany('App\Models\Education');
     }
 
     function works() {
-        return $this->hasMany('App\Work');
+        return $this->hasMany('App\Models\Work');
     }
 
     public function jobs(){

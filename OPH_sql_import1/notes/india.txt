@@ -1,0 +1,74 @@
+INSERT INTO `countries`
+(`id`, `name`, `iso3`, `iso2`, `phonecode`, `capital`, `currency`, `native`, `emoji`, `emojiU`, `created_at`, `updated_at`, `flag`, `wikiDataId`) VALUES
+(101, 'India', 'IND', 'IN', '91', 'New Delhi', 'INR', 'भारत', '🇮🇳', 'U+1F1EE U+1F1F3', '2018-07-20 20:11:03', '2020-05-16 10:49:11', 1, 'Q668'),
+
+
+CREATE TABLE `countries` (
+  `id` mediumint(8) UNSIGNED NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `iso3` char(3) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `iso2` char(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phonecode` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `capital` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `currency` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `native` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `emoji` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `emojiU` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `flag` tinyint(1) NOT NULL DEFAULT '1',
+  `wikiDataId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Rapid API GeoDB Cities'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `countries`
+--
+
+INSERT INTO `countries` (`id`, `name`, `iso3`, `iso2`, `phonecode`, `capital`, `currency`, `native`, `emoji`, `emojiU`, `created_at`, `updated_at`, `flag`, `wikiDataId`) VALUES
+
+
+====================
+
+CREATE TABLE `states` (
+  `id` mediumint(8) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country_id` mediumint(8) UNSIGNED NOT NULL,
+  `country_code` char(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fips_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `iso2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `flag` tinyint(1) NOT NULL DEFAULT '1',
+  `wikiDataId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Rapid API GeoDB Cities'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `states`
+--
+
+INSERT INTO `states` (`id`, `name`, `country_id`, `country_code`, `fips_code`, `iso2`, `created_at`, `updated_at`, `flag`, `wikiDataId`) VALUES
+
+
+
+===========================
+
+CREATE TABLE `cities` (
+  `id` mediumint(8) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state_id` mediumint(8) UNSIGNED NOT NULL,
+  `state_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country_id` mediumint(8) UNSIGNED NOT NULL,
+  `country_code` char(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `latitude` decimal(10,8) NOT NULL,
+  `longitude` decimal(11,8) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '2014-01-01 01:01:01',
+  `updated_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `flag` tinyint(1) NOT NULL DEFAULT '1',
+  `wikiDataId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Rapid API GeoDB Cities'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `cities`
+--
+
+INSERT INTO `cities` (`id`, `name`, `state_id`, `state_code`, `country_id`, `country_code`, `latitude`, `longitude`, `created_at`, `updated_on`, `flag`, `wikiDataId`) VALUES

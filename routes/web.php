@@ -71,8 +71,9 @@ Route::get('/unsave/{id}', [App\Http\Controllers\JobController::class, 'unSaveJo
 
 
 //hiring employer register
-Route::view('employer/register','auth.employer-register')->name('employer.register');
-Route::post('employer/register', [App\Http\Controllers\EmployerRegisterController::class,'employerRegister'])->name('emp.register');
+Route::view('employer-register','auth.employer-register')->name('employer.register');
+
+Route::post('employer-register', [App\Http\Controllers\EmployerRegisterController::class,'employerRegister'])->name('emp.register');
 
 //HIRING EMPLOYER from a COMPANY
 Route::get('/company/{id}/{company}', [App\Http\Controllers\CompanyController::class, 'index'])->name('company.index');
@@ -87,16 +88,16 @@ Route::post('user/coverphoto/delete',[App\Http\Controllers\CompanyController::cl
 Route::get('/companies',[App\Http\Controllers\CompanyController::class,'company'])->name('company');
 
 //SEEKER
-Route::get('user/profile',[App\Http\Controllers\UserController::class,'index'])->name('user.profile');
+Route::get('user/profile/{id}/edit',[App\Http\Controllers\UserController::class,'index'])->name('user.profile');
 Route::post('user/profile/create',[App\Http\Controllers\UserController::class,'store'])->name('profile.create');
 //Route::post('user/coverletter','UserController@coverletter')->name('cover.letter');
 Route::post('user/resume',[App\Http\Controllers\UserController::class,'resume'])->name('resume');
 Route::post('user/profile_pic',[App\Http\Controllers\UserController::class,'profile_pic'])->name('profile_pic');
 Route::post('user/profile_pic/delete',[App\Http\Controllers\UserController::class,'delete_spic'])->name('spic.delete');
 Route::post('user/resume/delete',[App\Http\Controllers\UserController::class,'delete_resume'])->name('resume.delete');
-Route::get('/user/{id}',[App\Http\Controllers\UserController::class,'show_profile'])->name('user.show'); //checked
-Route::get('/user/profile/dashboard',[App\Http\Controllers\UserController::class,'show'])->name('user.dashboard');
-Route::get('/user/profile/mysavedjobs',[App\Http\Controllers\UserController::class,'saved'])->name('user.saved');
+Route::get('/user/profile/{id}',[App\Http\Controllers\UserController::class,'show_profile'])->name('user.show'); //checked
+Route::get('/mydashboard',[App\Http\Controllers\UserController::class,'show'])->name('user.dashboard');
+Route::get('/mysavedjobs',[App\Http\Controllers\UserController::class,'saved'])->name('user.saved');
 //user work,education history
 Route::get('user/profile/history',[App\Http\Controllers\UserController::class,'history'])->name('user.history');
 
@@ -149,8 +150,9 @@ Route::group(['middleware' => 'check_role:admin,employer' ], function() {
 });
 
 //Mentor Support VOLUNTEER
-Route::view('volunteer/register','auth.volunteer-register')->name('volunteer.register');
-Route::post('volunteer/register',[App\Http\Controllers\VolunteerRegisterController::class,'volunteerRegister'])->name('vol.register');
+Route::view('volunteer-register','auth.volunteer-register')->name('volunteer.register');
+
+Route::post('volunteer-register',[App\Http\Controllers\VolunteerRegisterController::class,'volunteerRegister'])->name('vol.register');
 
 Route::get('volunteer/profile',[App\Http\Controllers\VolunteerController::class,'index'])->name('volunteer.profile');
 Route::post('user/volunteer/create',[App\Http\Controllers\VolunteerController::class,'store'])->name('volunteer.store');

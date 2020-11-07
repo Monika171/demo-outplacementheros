@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-//use App\Observers\JobObserver;
+use App\Observers\JobObserver;
 use App\Models\Industry;
 use App\Models\Skill;
 use App\Models\User;
@@ -33,7 +33,7 @@ class Job extends Model
     }
     
     public function company(){
-    	return $this->belongsTo('App\Company');
+    	return $this->belongsTo('App\Models\Company');
     }
 
     public function users(){

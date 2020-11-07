@@ -12,7 +12,7 @@
   
   @include('partials.nav')
 
-    {{--@include('partials.hero')--}}
+    @include('partials.hero')
     @include('partials.category')
 
 
