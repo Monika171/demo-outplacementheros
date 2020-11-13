@@ -36,7 +36,7 @@
                 @if(!empty(Auth::user()->profile->phone_number))
                    {{--<a href="{{route('company.view')}}"><button class="btn btn-danger btn-lg">Edit</button></a>--}}
  
-                   <a class="btn btn-warning" href="{{route('user.history')}}" role="button"><u><strong>Continue</strong></u> &nbsp;&nbsp;<i class="ion-ios-arrow-forward"></i>
+                   <a class="btn btn-warning" href="{{route('user.history',[Auth::user()->id])}}" role="button"><u><strong>Continue</strong></u> &nbsp;&nbsp;<i class="ion-ios-arrow-forward"></i>
                      <br><small>Education & Work History</small></a>
  
                 @endif
@@ -709,7 +709,7 @@
                 @if(!empty(Auth::user()->profile->phone_number))
                    {{--<a href="{{route('company.view')}}"><button class="btn btn-danger btn-lg">Edit</button></a>--}}
  
-                   <a class="btn btn-warning float-right" href="{{route('user.history')}}" role="button"><u><strong>Continue<strong></u> &nbsp;&nbsp;<i class="ion-ios-arrow-forward"></i>
+                   <a class="btn btn-warning float-right" href="{{route('user.history',[Auth::user()->id])}}" role="button"><u><strong>Continue<strong></u> &nbsp;&nbsp;<i class="ion-ios-arrow-forward"></i>
                      <br><small>Education & Work History</small></a>
  
                 @endif
@@ -743,7 +743,7 @@
                 if(coun_id){
                     $.ajax({
                         
-                        url: '/getStates/'+coun_id,
+                        url: '/user/profile/getStates/'+coun_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){
@@ -770,7 +770,7 @@
                     //console.log(country_id);
                     $.ajax({
                         
-                        url: '/getCities/'+s_id,
+                        url: '/user/profile/getCities/'+s_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){
@@ -800,7 +800,7 @@
                     
                     $.ajax({
                         
-                        url: '/getStates/'+country_id,
+                        url: '/user/profile/getStates/'+country_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){
@@ -832,7 +832,7 @@
                    
                     $.ajax({
                         
-                        url: '/getCities/'+state_id,
+                        url: '/user/profile/getCities/'+state_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){

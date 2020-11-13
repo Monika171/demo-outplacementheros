@@ -57,7 +57,7 @@
             <div class="col-md-4 ftco-animate text-center text-md-right mb-5" data-scrollax=" properties: { translateY: '70%' }">
               @if(Auth::check()&&Auth::user()->id==$user->id)               
 
-                 <a class="btn btn-warning" href="{{route('user.profile')}}" role="button"><i class="ion-ios-arrow-back"></i>&nbsp; <u><strong>Go Back</strong></u></a>
+                 <a class="btn btn-warning" href="{{route('user.profile',[$user->id])}}" role="button"><i class="ion-ios-arrow-back"></i>&nbsp; <u><strong>Go Back</strong></u></a>
 
               @endif
            </div>

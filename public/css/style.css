@@ -1,0 +1,56 @@
+
+main {
+	min-height: 500px;
+}
+
+.loading {
+    background: rgba(23, 162, 184, 0.7);
+    padding: 15px;
+    position: fixed;
+    border-radius: 4px;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    margin: -40px 0 0 -50px;
+    z-index: 2000;
+    display: none;
+    color: #fff;
+}
+
+.fa-trash-alt:hover,
+.fa-edit:hover,
+.fa-pencil-alt:hover,
+.fa-trash:hover {
+	cursor: pointer;
+}
+
+.small span {
+	font-size: 12px!important;
+}
+
+.select2-container,
+.select2-search__field {
+	width: 100% !important;
+}
+
+div#accordion .card-header:hover {
+	cursor: pointer;
+}
+.fa-user-circle {
+	cursor: pointer;
+}
+
+.fa-thumbs-up,
+.fa-thumbs-up:hover {
+	color: green;
+	cursor: pointer;
+}
+.fa-thumbs-down,
+.fa-thumbs-down:hover {
+	color: red;
+	cursor: pointer;
+}
+
+.collapse-accordion .card a[data-toggle=collapse] {display: block;padding:.75rem 1.25rem;}
+.collapse-accordion .card-header {padding:0;}
+/*  Small devices (landscape phones, 576px and up) */

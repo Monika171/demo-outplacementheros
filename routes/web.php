@@ -77,43 +77,43 @@ Route::post('employer-register', [App\Http\Controllers\EmployerRegisterControlle
 
 //HIRING EMPLOYER from a COMPANY
 Route::get('/company/{id}/{company}', [App\Http\Controllers\CompanyController::class, 'index'])->name('company.index');
-Route::get('company/create',[App\Http\Controllers\CompanyController::class,'create'])->name('company.view');
-Route::post('company/create',[App\Http\Controllers\CompanyController::class,'store'])->name('company.store');
-Route::post('company/logo',[App\Http\Controllers\CompanyController::class,'companyLogo'])->name('company.logo');
-Route::post('company/coverphoto',[App\Http\Controllers\CompanyController::class,'coverPhoto'])->name('cover.photo');
-Route::post('user/logo/delete',[App\Http\Controllers\CompanyController::class,'delete_elogo'])->name('elogo.delete');
-Route::post('user/coverphoto/delete',[App\Http\Controllers\CompanyController::class,'delete_ecover'])->name('ecover.delete');
+Route::get('/company/create',[App\Http\Controllers\CompanyController::class,'create'])->name('company.view');
+Route::post('/company/create',[App\Http\Controllers\CompanyController::class,'store'])->name('company.store');
+Route::post('/company/logo',[App\Http\Controllers\CompanyController::class,'companyLogo'])->name('company.logo');
+Route::post('/company/coverphoto',[App\Http\Controllers\CompanyController::class,'coverPhoto'])->name('cover.photo');
+Route::post('/user/logo/delete',[App\Http\Controllers\CompanyController::class,'delete_elogo'])->name('elogo.delete');
+Route::post('/user/coverphoto/delete',[App\Http\Controllers\CompanyController::class,'delete_ecover'])->name('ecover.delete');
 
 //See all companies
 Route::get('/companies',[App\Http\Controllers\CompanyController::class,'company'])->name('company');
 
 //SEEKER
-Route::get('user/profile/{id}/edit',[App\Http\Controllers\UserController::class,'index'])->name('user.profile');
-Route::post('user/profile/create',[App\Http\Controllers\UserController::class,'store'])->name('profile.create');
+Route::get('/user/profile/{id}/edit',[App\Http\Controllers\UserController::class,'index'])->name('user.profile');
+Route::post('/user/profile/create',[App\Http\Controllers\UserController::class,'store'])->name('profile.create');
 //Route::post('user/coverletter','UserController@coverletter')->name('cover.letter');
 Route::post('user/resume',[App\Http\Controllers\UserController::class,'resume'])->name('resume');
-Route::post('user/profile_pic',[App\Http\Controllers\UserController::class,'profile_pic'])->name('profile_pic');
-Route::post('user/profile_pic/delete',[App\Http\Controllers\UserController::class,'delete_spic'])->name('spic.delete');
-Route::post('user/resume/delete',[App\Http\Controllers\UserController::class,'delete_resume'])->name('resume.delete');
+Route::post('/user/profile_pic',[App\Http\Controllers\UserController::class,'profile_pic'])->name('profile_pic');
+Route::post('/user/profile_pic/delete',[App\Http\Controllers\UserController::class,'delete_spic'])->name('spic.delete');
+Route::post('/user/resume/delete',[App\Http\Controllers\UserController::class,'delete_resume'])->name('resume.delete');
 Route::get('/user/profile/{id}',[App\Http\Controllers\UserController::class,'show_profile'])->name('user.show'); //checked
 Route::get('/mydashboard',[App\Http\Controllers\UserController::class,'show'])->name('user.dashboard');
 Route::get('/mysavedjobs',[App\Http\Controllers\UserController::class,'saved'])->name('user.saved');
 //user work,education history
-Route::get('user/profile/history',[App\Http\Controllers\UserController::class,'history'])->name('user.history');
+Route::get('/user/profile/{id}/edit/history',[App\Http\Controllers\UserController::class,'history'])->name('user.history');
 
 // Education Controller
-Route::post('/profile/education/store',[App\Http\Controllers\EducationController::class, 'storeEducation']);
-Route::post('/profile/education/update',[App\Http\Controllers\EducationController::class, 'updateEducation']);
-Route::post('/profile/education/delete',[App\Http\Controllers\EducationController::class, 'deleteEducation']);
+Route::post('/user/profile/education/store',[App\Http\Controllers\EducationController::class, 'storeEducation']);
+Route::post('/user/profile/education/update',[App\Http\Controllers\EducationController::class, 'updateEducation']);
+Route::post('/user/profile/education/delete',[App\Http\Controllers\EducationController::class, 'deleteEducation']);
 
 // Work Controller
-Route::post('/profile/work/store',[App\Http\Controllers\WorkController::class, 'storeWork']);
-Route::post('/profile/work/update',[App\Http\Controllers\WorkController::class, 'updateWork']);
-Route::post('/profile/work/delete',[App\Http\Controllers\WorkController::class, 'deleteWork']);
+Route::post('/user/profile/work/store',[App\Http\Controllers\WorkController::class, 'storeWork']);
+Route::post('/user/profile/work/update',[App\Http\Controllers\WorkController::class, 'updateWork']);
+Route::post('/user/profile/work/delete',[App\Http\Controllers\WorkController::class, 'deleteWork']);
 
 //LOCATION controller
-Route::get('/getStates/{id}',[App\Http\Controllers\LocationController::class, 'getStates']);
-Route::get('/getCities/{id}',[App\Http\Controllers\LocationController::class, 'getCities']);
+Route::get('/user/profile/getStates/{id}',[App\Http\Controllers\LocationController::class, 'getStates']);
+Route::get('/user/profile/getCities/{id}',[App\Http\Controllers\LocationController::class, 'getCities']);
 
 //SKILL Controller
 Route::post('/profile/skills/store',[App\Http\Controllers\SkillController::class, 'storeSkill']);

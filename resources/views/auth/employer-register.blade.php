@@ -1,27 +1,18 @@
 @extends('layouts.main')
 @section('content')
-
 <div class="hero-wrap" style="height: 410px; background: linear-gradient(to bottom, #003399 0%, #666699 100%)" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
   <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-start" style="height: 410px" data-scrollax-parent="true">
             <div class="col-md-8 ftco-animate text-center text-md-left mb-5" data-scrollax=" properties: { translateY: '70%' }">
             <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-3"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Sign Up</span></p>
-            <h1  style="font-size: 45px;" class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Job Seeker Registration</h1>
+            <h1  style="font-size: 45px;" class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Employer Registration</h1>
         </div>
     </div>
 </div>
 </div>
-
-   <div class="album text-muted">
-     <div class="container">
-       <div class="row">
-         <h1>Employer Registration</h1>   
-      
-
-    
-
-    <div class="site-section bg-light">
+  
+    <div class="ftco-section bg-light">
       <div class="container">
         <div class="row">
        @if(Session::has('message'))
@@ -51,8 +42,8 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
                         <div class="col-md-12">Your Name</div>
-
                         <div class="col-md-12">
                             <input id="name" type="text" class="txt form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
     
@@ -63,6 +54,7 @@
                             @endif
                         </div>
                         </div>
+                        
 
                         <div class="form-group row">
                     
@@ -78,8 +70,6 @@
                                 @endif
                             </div>
                         </div>
-
-
                         <div class="form-group row">
                     
                             <div class="col-md-12">Password</div>
@@ -102,9 +92,6 @@
                             </div>
                         </div>
 
-
-
-
               <div class="row form-group">
                 <div class="col-md-12">
                   <input type="submit" value="Register as Employer" class="btn btn-primary  py-2 px-5">
@@ -115,21 +102,15 @@
             </form>
           </div>
 
-          <div class="col-lg-4">
-            
-            
+          <div class="col-lg-4">            
             <div class="p-4 mb-3 bg-white">
               <h3 class="h5 text-black mb-3">More Info</h3>
               <p>Once you create an account a verification link will be sent to your email.</p>
               <!--<p><a href="#" class="btn btn-primary  py-2 px-4">Learn More</a></p>-->
             </div>
           </div>
-        </div>
       </div>
     </div>
+  </div>
 
-
-
-     </div>
-   </div>
 @endsection
