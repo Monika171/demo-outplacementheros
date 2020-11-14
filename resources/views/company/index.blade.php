@@ -54,7 +54,7 @@
             <div class="col-md-3 ftco-animate text-center text-md-right mb-5" data-scrollax=" properties: { translateY: '70%' }">
                @if(Auth::check()&&Auth::user()->id==$company->user_id)                 
 
-                  <a class="btn btn-sm" style="background:#0c127d; font-size:18px; color:white;" href="{{route('company.view')}}" role="button">Edit Details</a>
+                  <a class="btn btn-sm" style="background:#0c127d; font-size:18px; color:white;" href="{{route('company.view',[Auth::user()->company->id,Auth::user()->company->slug])}}" role="button">Edit Details</a>
 
                @endif
             </div>

@@ -79,7 +79,7 @@
                         <label for="category">Job Category/Industry</label>
 							<select name="category" class="form-control select1">
                                 <option value=""></option>
-                                @foreach(App\Industry::all() as $cat)
+                                @foreach(App\Models\Industry::all() as $cat)
                                 <option value="{{$cat->id}}" {{$cat->id==$job->category_id?'selected':''}}>{{$cat->industry}}</option>
                                  @endforeach
 							</select>

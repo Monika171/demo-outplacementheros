@@ -168,7 +168,7 @@
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body text-dark h6">
                                       Are you sure?
                                     </div>
                                     <div class="modal-footer">

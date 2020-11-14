@@ -743,7 +743,7 @@
                 if(coun_id){
                     $.ajax({
                         
-                        url: '/user/profile/getStates/'+coun_id,
+                        url: '/user/location/getStates/'+coun_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){
@@ -770,7 +770,7 @@
                     //console.log(country_id);
                     $.ajax({
                         
-                        url: '/user/profile/getCities/'+s_id,
+                        url: '/user/location/getCities/'+s_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){
@@ -800,7 +800,7 @@
                     
                     $.ajax({
                         
-                        url: '/user/profile/getStates/'+country_id,
+                        url: '/user/location/getStates/'+country_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){
@@ -832,7 +832,7 @@
                    
                     $.ajax({
                         
-                        url: '/user/profile/getCities/'+state_id,
+                        url: '/user/location/getCities/'+state_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){

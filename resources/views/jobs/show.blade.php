@@ -92,7 +92,7 @@ p {
                     <div class="col-md-12"><h5><i class="fa fa-briefcase" aria-hidden="true" style="color: rgb(107, 107, 150); font-size: 20px;"></i>
                       &nbsp;&nbsp; Industry:</h5></div>
                     <div class="col-md-12 my-0 mb-md-0">
-                      <p>@foreach(App\Industry::all() as $cat)
+                      <p>@foreach(App\Models\Industry::all() as $cat)
                       {{$cat->id==$job->category_id?$cat->industry:''}}         
                       @endforeach
                     </p> 

@@ -105,7 +105,7 @@
                         <label for="category">Job Category/Industry</label>
                         <select  class="form-control select1" name="category">
                             <option value=""></option>
-                            @foreach(App\Industry::all() as $cat)
+                            @foreach(App\Models\Industry::all() as $cat)
                               <option value="{{$cat->id}}">{{$cat->industry}}</option>
                             @endforeach
                           </select>
@@ -468,7 +468,7 @@
                     //console.log(country_id);
                     $.ajax({
                         
-                        url: '/getStates/'+country_id,
+                        url: '/user/location/getStates/'+country_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){
@@ -500,7 +500,7 @@
                     //console.log(country_id);
                     $.ajax({
                         
-                        url: '/getCities/'+state_id,
+                        url: '/user/location/getCities/'+state_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){

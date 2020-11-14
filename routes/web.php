@@ -39,13 +39,13 @@ Route::post('message', [App\Http\Controllers\HomeController::class, 'sendMessage
 
 //Route::get('/','JobController@index');
 // Route::get('/jobs/create','JobController@create')->name('job.create');
-Route::get('/jobs/create', [App\Http\Controllers\HomeController::class, 'sendMessage']);
+Route::get('/jobs/create', [App\Http\Controllers\JobController::class, 'create'])->name('job.create');
 // Route::post('/jobs/create','JobController@store')->name('job.store');
-Route::post('/jobs/create', [App\Http\Controllers\HomeController::class, 'sendMessage']);
+Route::post('/jobs/create', [App\Http\Controllers\JobController::class, 'store'])->name('job.store');
 // Route::get('/jobs/my-job','JobController@myjob')->name('my.job');
-Route::get('/jobs/my-job', [App\Http\Controllers\HomeController::class, 'sendMessage']);
+Route::get('/jobs/my-job', [App\Http\Controllers\JobController::class, 'myjob'])->name('my.job');
 // Route::get('/jobs/my-job/{id}/toggle','JobController@toggle')->name('job.toggle');//change job status in an instant!
-Route::get('/jobs/my-job/{id}/toggle', [App\Http\Controllers\HomeController::class, 'sendMessage']);
+Route::get('/jobs/my-job/{id}/toggle', [App\Http\Controllers\JobController::class, 'toggle'])->name('job.toggle');
 
 // Route::get('/jobs/my-job/{id}/edit','JobController@edit')->name('job.edit');//checked
 Route::get('/jobs/my-job/{id}/edit', [App\Http\Controllers\JobController::class, 'edit'])->name('job.edit');
@@ -77,7 +77,7 @@ Route::post('employer-register', [App\Http\Controllers\EmployerRegisterControlle
 
 //HIRING EMPLOYER from a COMPANY
 Route::get('/company/{id}/{company}', [App\Http\Controllers\CompanyController::class, 'index'])->name('company.index');
-Route::get('/company/create',[App\Http\Controllers\CompanyController::class,'create'])->name('company.view');
+Route::get('/company/{id}/{company}/create',[App\Http\Controllers\CompanyController::class,'create'])->name('company.view');
 Route::post('/company/create',[App\Http\Controllers\CompanyController::class,'store'])->name('company.store');
 Route::post('/company/logo',[App\Http\Controllers\CompanyController::class,'companyLogo'])->name('company.logo');
 Route::post('/company/coverphoto',[App\Http\Controllers\CompanyController::class,'coverPhoto'])->name('cover.photo');
@@ -112,8 +112,8 @@ Route::post('/user/profile/work/update',[App\Http\Controllers\WorkController::cl
 Route::post('/user/profile/work/delete',[App\Http\Controllers\WorkController::class, 'deleteWork']);
 
 //LOCATION controller
-Route::get('/user/profile/getStates/{id}',[App\Http\Controllers\LocationController::class, 'getStates']);
-Route::get('/user/profile/getCities/{id}',[App\Http\Controllers\LocationController::class, 'getCities']);
+Route::get('/user/location/getStates/{id}',[App\Http\Controllers\LocationController::class, 'getStates']);
+Route::get('/user/location/getCities/{id}',[App\Http\Controllers\LocationController::class, 'getCities']);
 
 //SKILL Controller
 Route::post('/profile/skills/store',[App\Http\Controllers\SkillController::class, 'storeSkill']);

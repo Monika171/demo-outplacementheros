@@ -74,7 +74,7 @@ class JobObserver
                 $user_collect = $seekers->pluck('user_id');
                 $user_id = $user_collect->all();
 
-                //dd($user_id);             
+                // dd($user_id);             
 
                 //$myArray = $unique->values()->first();
                 //return $unique->values()->all();                
@@ -87,7 +87,7 @@ class JobObserver
             })->orWhereIn('id', $user_id)
             ->get();
 
-           //dd($users);
+        //    dd($users);
         Notification::send($users, new NewJobImmediateNotification($job));
     }
 }
