@@ -401,7 +401,7 @@
                 if(coun_id){
                     $.ajax({
                         
-                        url: '/getStates/'+coun_id,
+                        url: '/user/location/getStates/'+coun_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){
@@ -427,7 +427,7 @@
                 if(s_id){
                      $.ajax({
                         
-                        url: '/getCities/'+s_id,
+                        url: '/user/location/getCities/'+s_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){
@@ -455,7 +455,7 @@
                     
                     $.ajax({
                         
-                        url: '/getStates/'+country_id,
+                        url: '/user/location/getStates/'+country_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){
@@ -487,7 +487,7 @@
                     
                     $.ajax({
                         
-                        url: '/getCities/'+state_id,
+                        url: '/user/location/getCities/'+state_id,
                         type: 'GET',
                         dataType: 'json',
                         success: function(data){

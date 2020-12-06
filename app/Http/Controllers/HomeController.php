@@ -11,6 +11,7 @@ use App\Models\VolunteerProfile;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Message;
 use Pusher\Pusher;
 
 class HomeController extends Controller
@@ -61,14 +62,6 @@ class HomeController extends Controller
 
             }
 
-            
-        if(auth::user()->user_type=='jvolunteer'){
-            $id = auth()->user()->id;
-            return redirect()->to('/jvseekers');
-            //return redirect()->to('/volunteer/'.$id);
-
-            }
-
         $adminRole = Auth::user()->roles()->pluck('name');
             if($adminRole->contains('admin')){
                 return redirect('/dashboard');
@@ -83,6 +76,7 @@ class HomeController extends Controller
     {
         // select all users except logged in user
         // $users = User::where('id', '!=', Auth::id())->get();
+        // return view('home', ['users' => $users]);
 
         // count how many message are unread from the selected user
 
@@ -95,32 +89,30 @@ class HomeController extends Controller
         return view('home', ['users' => $users]);
         }
 
-        if(auth::user()->user_type=='jvolunteer'){
-            $users = DB::select("select users.id, users.name, users.user_type, users.email, count(is_read) as unread 
-        from users LEFT  JOIN  messages ON users.id = messages.from and is_read = 0 and messages.to = " . Auth::id() . "
-        where users.id != " . Auth::id() . " AND users.user_type = 'seeker' 
-        group by users.id, users.name, users.user_type, users.email");
-
-        return view('home', ['users' => $users]);
-            }
 
         if(auth::user()->user_type=='seeker'){
             $users = DB::select("select users.id, users.name, users.user_type, users.email, count(is_read) as unread 
             from users LEFT  JOIN  messages ON users.id = messages.from and is_read = 0 and messages.to = " . Auth::id() . "
-            where users.id != " . Auth::id() . " AND (users.user_type = 'volunteer' OR  users.user_type = 'jvolunteer')
+            where users.id != " . Auth::id() . " AND (users.user_type = 'volunteer')
             group by users.id, users.name, users.user_type, users.email");
 
         return view('home', ['users' => $users]);
             }
-
-
-
-
     }
 
     public function getMessage($user_id)
     {
+
+        // return $user_id;
         $my_id = Auth::id();
+        $messages = Message::where(function ($query) use ($user_id, $my_id) {
+                    $query->where('from', $user_id)->where('to', $my_id);
+                })->oRwhere(function ($query) use ($user_id, $my_id) {
+                    $query->where('from', $my_id)->where('to', $user_id);
+                })->get();
+        
+                return view('messages.index', ['messages' => $messages]);
+
 
         // Make read all unread message
         Message::where(['from' => $user_id, 'to' => $my_id])->update(['is_read' => 1]);

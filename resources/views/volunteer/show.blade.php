@@ -14,7 +14,7 @@
                @if(Auth::check()&&Auth::user()->id==$user->id)
                   {{--<a href="{{route('company.view')}}"><button class="btn btn-danger btn-lg">Edit</button></a>--}}
 
-                  <a class="btn edit btn-sm" style="background:#0c127d;font-size:18px;color:white;" href=" {{route('volunteer.profile')}}" role="button">Edit Details</a>
+                  <a class="btn edit btn-sm" style="background:#0c127d;font-size:18px;color:white;" href=" {{route('volunteer.profile',[$user->id])}}" role="button">Edit Details</a>
 
                @endif
             </div>

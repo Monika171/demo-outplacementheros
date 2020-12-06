@@ -37,7 +37,7 @@
 		<!-- toastr JS -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 		<script src="{{ asset('js/app.js') }}"></script>
-
+		@yield('jsplugins-chat')
 
 </body>
 </html>

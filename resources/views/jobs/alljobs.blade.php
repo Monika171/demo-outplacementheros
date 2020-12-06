@@ -29,7 +29,7 @@
                     <select name="category_id" class="form-control">
                         <option value="">-select-</option>
         
-                            @foreach(App\Industry::all() as $cat)
+                            @foreach(App\Models\Industry::all() as $cat)
                                 <option value="{{$cat->id}}">{{$cat->industry}}</option>
                             @endforeach
                         </select>
@@ -105,7 +105,7 @@
                                         </div>
                                         <div class="mx-0 text-black"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;
                                               Industry:&nbsp; 
-                                                @foreach(App\Industry::all() as $cat)
+                                                @foreach(App\Models\Industry::all() as $cat)
                                                 {{$cat->id==$job->category_id?$cat->industry:''}}         
                                                 @endforeach
                                           </div>

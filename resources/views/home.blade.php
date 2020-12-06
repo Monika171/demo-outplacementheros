@@ -189,9 +189,9 @@
                                             {{ $user->name }}</strong>
 
                                         @if($user->user_type=="volunteer")
-                                        <span class="badge badge-danger" style="float:right">Mentor</span>
-                                        @elseif($user->user_type=="jvolunteer")
-                                        <span class="badge badge-warning" style="float:right">Mentor(Job-Support)</span>
+                                        <span class="badge badge-danger" style="float:right">Volunteer</span>
+                                        {{-- @elseif($user->user_type=="jvolunteer")
+                                        <span class="badge badge-warning" style="float:right">Mentor(Job-Support)</span> --}}
                                         @endif
                                 
                                     </p>
@@ -213,9 +213,9 @@
 </div>
   <br><br>
 @endsection
-@section('jsplugins')
+@section('jsplugins-chat')
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
 
 <script>
     var receiver_id = '';
@@ -266,7 +266,7 @@
             receiver_id = $(this).attr('id');
             $.ajax({
                 type: "get",
-                url: "message/" + receiver_id, // need to create this route
+                url: "/message/" + receiver_id, // need to create this route
                 data: "",
                 cache: false,
                 success: function (data) {

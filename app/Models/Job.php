@@ -45,6 +45,7 @@ class Job extends Model
   }
 
   public function favorites(){
+    // return $this->belongsToMany('App\Models\Job','favourites','job_id','user_id')->withTimeStamps();
     return $this->belongsToMany(Job::class,'favourites','job_id','user_id')->withTimeStamps();
   }
   

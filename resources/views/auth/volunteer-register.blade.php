@@ -7,17 +7,13 @@
         <div class="row no-gutters slider-text align-items-end justify-content-start" style="height: 410px" data-scrollax-parent="true">
             <div class="col-md-8 ftco-animate text-center text-md-left mb-5" data-scrollax=" properties: { translateY: '70%' }">
             <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-3"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Sign Up</span></p>
-            <h1  style="font-size: 45px;" class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Job Seeker Registration</h1>
+            <h1  style="font-size: 45px;" class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Volunteer Registration</h1>
         </div>
     </div>
 </div>
 </div>
-   <div class="album text-muted">
-     <div class="container">
-       <div class="row">
-         <h1>Volunteer Registration</h1>   
-
-    <div class="site-section bg-light">
+ 
+    <div class="ftco-section bg-light">
       <div class="container">
         <div class="row">
        @if(Session::has('message'))
@@ -70,7 +66,7 @@
                             <div class="col-md-12">Date of Birth</div>
 
                             <div class="col-md-12">
-                                <input type="text" id="datepicker" placeholder="date of birth" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob">
+                              <input type="text" id="date_dob" class="txt form-control datepicker @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required>
 
                                 @if ($errors->has('dob'))
                                 <span class="invalid-feedback" role="alert">
@@ -108,8 +104,8 @@
                             <div class="col-md-12">Gender</div>
 
                             <div class="col-md-12">
-                                <input type="radio" name="gender" value="male" required="">Male
-                                <input type="radio" name="gender" value="female">Female
+                                <input type="radio" name="gender" value="male" required="">&nbsp;&nbsp; Male
+                                <input type="radio" name="gender" value="female">&nbsp;&nbsp; Female
 
                                 @if ($errors->has('gender'))
                         <span class="invalid-feedback" role="alert">
@@ -122,7 +118,7 @@
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Register as Job Seeker" class="btn btn-primary  py-2 px-5">
+                  <input type="submit" value="Register as Volunteer" class="btn btn-primary  py-2 px-5">
                 </div>
               </div>
 

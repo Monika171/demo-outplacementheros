@@ -63,11 +63,11 @@ Route::get('/jobs/alljobs', [App\Http\Controllers\JobController::class, 'allJobs
 Route::get('/{id}/{job}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show');
 // Route::post('/applications/{id}','JobController@apply')->name('apply');
 //save and unsave job (seeker)
-Route::get('/applications/{id}', [App\Http\Controllers\JobController::class, 'apply'])->name('apply');
+Route::post('/applications/{id}', [App\Http\Controllers\JobController::class, 'apply'])->name('apply');
 // Route::post('/save/{id}','FavouriteController@saveJob');
-Route::get('/save/{id}', [App\Http\Controllers\JobController::class, 'saveJob']);
+Route::post('/save/{id}', [App\Http\Controllers\FavouriteController::class, 'saveJob']);
 // Route::post('/unsave/{id}','FavouriteController@unSaveJob');
-Route::get('/unsave/{id}', [App\Http\Controllers\JobController::class, 'unSaveJob']);
+Route::post('/unsave/{id}', [App\Http\Controllers\FavouriteController::class, 'unSaveJob']);
 
 
 //hiring employer register
@@ -154,14 +154,14 @@ Route::view('volunteer-register','auth.volunteer-register')->name('volunteer.reg
 
 Route::post('volunteer-register',[App\Http\Controllers\VolunteerRegisterController::class,'volunteerRegister'])->name('vol.register');
 
-Route::get('volunteer/profile',[App\Http\Controllers\VolunteerController::class,'index'])->name('volunteer.profile');
-Route::post('user/volunteer/create',[App\Http\Controllers\VolunteerController::class,'store'])->name('volunteer.store');
-Route::post('volunteer/profile_pic',[App\Http\Controllers\VolunteerController::class,'vprofile_pic'])->name('vprofile_pic');
-Route::post('volunteer/profile_pic/delete',[App\Http\Controllers\VolunteerController::class,'delete_vpic'])->name('vpic.delete');
-Route::get('volunteer/{id}',[App\Http\Controllers\VolunteerController::class,'show'])->name('volunteer.show'); //checked
+Route::get('/volunteer/profile/{id}/edit',[App\Http\Controllers\VolunteerController::class,'index'])->name('volunteer.profile');
+Route::post('/volunteer/profile/create',[App\Http\Controllers\VolunteerController::class,'store'])->name('volunteer.store');
+Route::post('/volunteer/profile_pic',[App\Http\Controllers\VolunteerController::class,'vprofile_pic'])->name('vprofile_pic');
+Route::post('/volunteer/profile_pic/delete',[App\Http\Controllers\VolunteerController::class,'delete_vpic'])->name('vpic.delete');
+Route::get('/volunteer/profile/{id}',[App\Http\Controllers\VolunteerController::class,'show'])->name('volunteer.show'); //checked
 
 Route::get('/vseekers',[App\Http\Controllers\VolunteerController::class,'listseekers'])->name('vseeker.index');
-Route::get('/vseeker/{id}',[App\Http\Controllers\VolunteerController::class,'show_profile'])->name('vseeker.show');
+Route::get('/vseeker/show/{id}',[App\Http\Controllers\VolunteerController::class,'show_profile'])->name('vseeker.show');
 
 
 //Auth::routes();
